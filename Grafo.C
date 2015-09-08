@@ -2,7 +2,9 @@
 //#define Nodos 8
 //#define Aristas 13
 
-typedef struct //"nombre por definir"{
+typedef struct Grafo{
   char nombre;
-  struct //"nomre por definir" *Vecino;
-}
+  char color;
+  int distancia;
+  struct DFS *Padre;
+}Grafo;
