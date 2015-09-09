@@ -8,6 +8,7 @@ typedef struct Nodo{
   char nombre[Nodos];//son los nombres de los nodos;
   char color[Nodos];//solo se usa en busqueda,es para poder identificar los nodos visitados durante la busqueda;
   int distancia[Nodos];//solo se usa en busqueda,indica cuantos nodos se han recorrido desde el inicio;
+  int tiempo;//solo se usa en busqueda profunda, es donde se guarda los pasos realizados desde el inicio de la busqueda
   int vecinos[Nodos][Nodos];//indica si son vecinos o no son vecinos los nodos X e Y;
   int padre[Nodos];//solo se usa en busqueda, es donde se almacena quien es el predecesor en la busqueda
 //  struct Nodo *Padre;//solo se usa en busqueda;
