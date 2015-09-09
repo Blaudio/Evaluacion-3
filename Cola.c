@@ -23,7 +23,7 @@ int vacio_elemento_cola(cola q){
 
 int completo_elemento_cola(cola q){
 	int aux = q.detras;
-    if (aux == Max-1){
+    if (aux == Nodos-1){
 		aux = 0;
 	}
     else{
@@ -38,7 +38,7 @@ int completo_elemento_cola(cola q){
 cola agregar_elemento_cola(cola q,int elemento){
 	if(!completo_elemento_cola(q)){
 		if(!vacio_elemento_cola(q)){
-		   if (q.detras == Max-1){
+		   if (q.detras == Nodos-1){
 				q.detras= 0;
 			}
 			else{
@@ -59,7 +59,7 @@ cola eliminar_elemento_cola(cola q){
 			q.frente = q.detras = -1;
 		}
 		else{
-			if (q.frente == Max-1){
+			if (q.frente == Nodos-1){
 				q.frente = 0;
 			}
 			else{
