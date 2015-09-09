@@ -9,27 +9,27 @@ typedef struct {
 
 cola iniciar_elemento_cola(){
 	cola aux;
-  aux.detras= -1;
-  aux. frente= -1;
+  aux->detras= -1;
+  aux->frente= -1;
   return(aux);
 }
 
 int vacio_elemento_cola(cola q){
-	if ((q.frente == q.detras)&&(q.detras == -1)) {
+	if ((q->frente == q.detras)&&(q->detras == -1)) {
 		return 1;
 	}
     return 0;
 }
 
 int completo_elemento_cola(cola q){
-	int aux = q.detras;
+	int aux = q->detras;
     if (aux == Nodos-1){
 		aux = 0;
 	}
     else{
 		aux = aux + 1;
 	}
-    if(aux == q.frente){
+    if(aux == q->frente){
     	return 1;
     }
     return 0;
@@ -38,32 +38,32 @@ int completo_elemento_cola(cola q){
 cola agregar_elemento_cola(cola q,int elemento){
 	if(!completo_elemento_cola(q)){
 		if(!vacio_elemento_cola(q)){
-		   if (q.detras == Nodos-1){
-				q.detras= 0;
+		   if (q->detras == Nodos-1){
+				q->detras= 0;
 			}
 			else{
-				q.detras = q.detras+1;  
+				q->detras = q->detras+1;  
 			}
 		}
 		else{
-			q.frente = q.detras = 0;
+			q->frente = q->detras = 0;
 		}
-	q.datos[q.detras]=elemento;    
+	q->datos[q->detras]=elemento;    
 	}
 	return  q;
 }
 
 cola eliminar_elemento_cola(cola q){
 	if (!vacio_elemento_cola(q)){
-		if(q.frente == q.detras){
-			q.frente = q.detras = -1;
+		if(q->frente == q->detras){
+			q->frente = q->detras = -1;
 		}
 		else{
-			if (q.frente == Nodos-1){
-				q.frente = 0;
+			if (q->frente == Nodos-1){
+				q->frente = 0;
 			}
 			else{
-				q.frente = q.frente + 1;
+				q->frente = q->frente + 1;
 			}
 		}    
 	}
