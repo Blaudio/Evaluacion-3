@@ -6,9 +6,10 @@
 
 typedef struct Nodo{
   char nombre[Nodos];//son los nombres de los nodos;
-  char color;//solo se usa en busqueda,es para poder identificar los nodos visitados durante la busqueda;
-  int distancia;//solo se usa en busqueda,indica cuantos nodos se han recorrido desde el inicio;
+  char color[Nodos];//solo se usa en busqueda,es para poder identificar los nodos visitados durante la busqueda;
+  int distancia[Nodos];//solo se usa en busqueda,indica cuantos nodos se han recorrido desde el inicio;
   int vecinos[Nodos][Nodos];//indica si son vecinos o no son vecinos los nodos X e Y;
+  int padre[Nodos];//solo se usa en busqueda, es donde se almacena quien es el predecesor en la busqueda
 //  struct Nodo *Padre;//solo se usa en busqueda;
 }Nodo;
 
@@ -19,6 +20,7 @@ Nodo *inicializa(Nodo grafo){
      aux->nombre[contadorA]=NULL;
      aux->color[contadorA]=("W");//se le dara el color W(white/blanco)de manera predeterminada a todos;
      aux->distancia[contadorA]=0;//como no se ha iniciado una busqueda la distancia recorrida sera 0;
+     aux->padre[contadorA]=0;//como solo se usa en la busqueda sera nullo;
     for(contadorB=0; contadorB<=Nodos; contadorB++){
       aux->vecinos[contadorA][contadorB]=0;//ninguno nodo sera vecino de manera predeterminada
     }
