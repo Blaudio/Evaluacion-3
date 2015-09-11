@@ -26,7 +26,7 @@ Nodo *inicializa(Nodo grafo){
       aux->vecinos[contadorA][contadorB]=0;//ninguno nodo sera vecino de manera predeterminada
     }
   }
-  int tiempo=0;
+  aux->tiempo=0;
   return (aux);
 }
 
