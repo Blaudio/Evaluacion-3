@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #define Nodos 7
 
 typedef struct {
