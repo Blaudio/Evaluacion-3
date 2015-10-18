@@ -7,65 +7,65 @@ typedef struct {
   int datos[Nodos];
 }	cola;
 
-cola iniciar_elemento_cola(){
-	cola aux;
-  aux->detras= -1;
-  aux->frente= -1;
+cola *iniciar_elemento_cola(){
+  cola *aux;
+  aux->detras=-1;
+  aux->frente=-1;
   return(aux);
 }
 
-int vacio_elemento_cola(cola q){
-	if ((q->frente == q.detras)&&(q->detras == -1)) {
+int vacio_elemento_cola(cola *aux){
+	if ((aux->frente == aux->detras)&&(aux->detras == -1)) {
 		return 1;
 	}
     return 0;
 }
 
-int completo_elemento_cola(cola q){
-	int aux = q->detras;
+int completo_elemento_cola(cola *_aux){
+	int aux = _aux->detras;
     if (aux == Nodos-1){
 		aux = 0;
 	}
     else{
 		aux = aux + 1;
 	}
-    if(aux == q->frente){
+    if(aux == _aux->frente){
     	return 1;
     }
     return 0;
 }
 
-cola agregar_elemento_cola(cola q,int elemento){
-	if(!completo_elemento_cola(q)){
-		if(!vacio_elemento_cola(q)){
-		   if (q->detras == Nodos-1){
-				q->detras= 0;
+cola *agregar_elemento_cola(cola *aux,int elemento){
+	if(!completo_elemento_cola(aux)){
+		if(!vacio_elemento_cola(aux)){
+		   if (aux->detras == Nodos-1){
+				aux->detras= 0;
 			}
 			else{
-				q->detras = q->detras+1;  
+				aux->detras = aux->detras+1;  
 			}
 		}
 		else{
-			q->frente = q->detras = 0;
+			aux->frente = aux->detras = 0;
 		}
-	q->datos[q->detras]=elemento;    
+	aux->datos[aux->detras]=elemento;    
 	}
-	return  q;
+	return  (aux);
 }
 
-cola eliminar_elemento_cola(cola q){
-	if (!vacio_elemento_cola(q)){
-		if(q->frente == q->detras){
-			q->frente = q->detras = -1;
+cola *eliminar_elemento_cola(cola *aux){
+	if (!vacio_elemento_cola(aux)){
+		if(aux->frente == aux->detras){
+			aux->frente = aux->detras = -1;
 		}
 		else{
-			if (q->frente == Nodos-1){
-				q->frente = 0;
+			if (aux->frente == Nodos-1){
+				aux->frente = 0;
 			}
 			else{
-				q->frente = q->frente + 1;
+				aux->frente = aux->frente + 1;
 			}
 		}    
 	}
-	return(q);
+	return(aux);
 }
