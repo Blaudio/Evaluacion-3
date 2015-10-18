@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 #define Nodos 7
 //#define Aristas 12
 //aqui estan las conversiones entre las cordenadas de las tablas y los elementos
 // 0=A 1=B 2=C 3=D 4=E 5=F 6=G 7=H
 
-typedef struct Nodo{
+typedef struct _Nodo{
   char nombre[Nodos];//son los nombres de los nodos;
   char color[Nodos];//solo se usa en busqueda,es para poder identificar los nodos visitados durante la busqueda;
   int distancia[Nodos];//solo se usa en busqueda,indica cuantos nodos se han recorrido desde el inicio;
@@ -14,9 +15,10 @@ typedef struct Nodo{
 //  struct Nodo *Padre;//solo se usa en busqueda;
 }Nodo;
 
-Nodo *inicializa(Nodo grafo){
-  int contadorA,contadorB
-  Nodo *aux = (Nodo *)malloc(sizeof(Nodo));
+Nodo *inicializa(){
+  int contadorA,contadorB;
+  Nodo *aux;
+  aux = malloc(sizeof(Nodo));
   for(contadorA=0; contadorA<=Nodos; contadorA++){
      aux->nombre[contadorA]=NULL;
      aux->color[contadorA]=("W");//se le dara el color W(white/blanco)de manera predeterminada a todos;
@@ -32,7 +34,7 @@ Nodo *inicializa(Nodo grafo){
 
 //if(grafo->nombre=="A"){} //base para no tener que crear mas de un vecino
 
-Nodo *agrega_elementos(Nodo grafo){
+Nodo *agrega_elementos(Nodo *grafo){
   grafo->nombre[0]=("A");
   grafo->nombre[1]=("B");
   grafo->nombre[2]=("C");

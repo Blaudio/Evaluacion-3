@@ -1,8 +1,9 @@
 #include <stdio.h>
-#include "Grafos.c"
+#include "Grafos.h"
+#include "Cola.h"
 
-Nodo Busqueda_a_lo_ancho(Nodo *Grafo, int elemento){
-  Nodo *aux = *Grafo;
+int Busqueda_a_lo_ancho(Nodo *Grafo, int elemento){
+  Nodo *aux = Grafo;
   cola *Qcola;
   int elemento_actual;
   int contador=0;
@@ -15,7 +16,7 @@ Nodo Busqueda_a_lo_ancho(Nodo *Grafo, int elemento){
     eliminar_elemento_cola(Qcola);
     printf ("|%d",aux->nombre[elemento_actual]);//Aqui se imprime el estado de busqueda.
     for(contador=0; contador<=Nodos; contador++){
-      if(aux->color==("W") &&  grafo->vecinos[elemento_actual][contador]==1){
+      if(aux->color[elemento_actual]==("W") &&  aux->vecinos[elemento_actual][contador]==1){
         printf ("->%d",aux->nombre[contador]);//Aqui se imprime el estado de busqueda para el nodo seleccionado.
         aux->color[contador]=("G");
         aux->distancia[contador]=aux->distancia[elemento_actual]+1;
